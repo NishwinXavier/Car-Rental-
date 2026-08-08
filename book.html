@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadify — Book Your Dream Car</title>
+  <meta name="description" content="Reserve your luxury vehicle in just a few simple steps. Premium car rental booking.">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/book.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="book-page">
+
+  <!-- Background -->
+  <div class="book-bg-wrapper">
+    <div class="book-bg-gradient"></div>
+    <div class="book-bg-grid"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+          <path d="M8 32L18 8H26L16 32H8Z" fill="#ff2a4b"/>
+          <path d="M22 16L32 16L27 24L17 24L22 16Z" fill="#e11d48"/>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Roadify</span>
+          <span class="brand-tagline">RENT. DRIVE. DISCOVER.</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <div class="nav-indicator"></div>
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#cars" class="nav-link">Cars</a>
+        <a href="index.html#deals" class="nav-link">Deals</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#locations" class="nav-link">Locations</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn-signin" onclick="window.location.href='signin.html'">Sign In</button>
+        <button class="btn-book" style="background:linear-gradient(135deg,#e11d48,#ff2a4b)">Book Now</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="book-main">
+
+    <!-- PAGE HERO -->
+    <section class="book-hero">
+      <div class="book-hero-inner">
+        <span class="section-tag">PREMIUM RESERVATION</span>
+        <h1 class="book-hero-title">BOOK YOUR<br><span class="text-red">DREAM CAR</span></h1>
+        <p class="book-hero-subtitle">Reserve your luxury vehicle in just a few simple steps.</p>
+        <div class="hero-divider">
+          <span class="divider-line"></span>
+          <span class="divider-diamond"></span>
+          <span class="divider-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRESS STEPPER -->
+    <div class="stepper-wrapper">
+      <div class="stepper-container">
+        <div class="stepper-bg-track"></div>
+        <div class="stepper-fill-track" id="stepperFill"></div>
+        <div class="step active" data-step="1">
+          <div class="step-circle">
+            <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2z"/></svg></span>
+            <span class="step-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="step-num">1</span>
+          </div>
+          <span class="step-label">Select Car</span>
+        </div>
+        <div class="step" data-step="2">
+          <div class="step-circle">
+            <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+            <span class="step-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="step-num">2</span>
+          </div>
+          <span class="step-label">Rental Details</span>
+        </div>
+        <div class="step" data-step="3">
+          <div class="step-circle">
+            <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+            <span class="step-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="step-num">3</span>
+          </div>
+          <span class="step-label">Personal Info</span>
+        </div>
+        <div class="step" data-step="4">
+          <div class="step-circle">
+            <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+            <span class="step-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="step-num">4</span>
+          </div>
+          <span class="step-label">Payment</span>
+        </div>
+        <div class="step" data-step="5">
+          <div class="step-circle">
+            <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+            <span class="step-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span class="step-num">5</span>
+          </div>
+          <span class="step-label">Confirmation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======== STEP 1: SELECT CAR ======== -->
+    <section class="book-section active-step" id="step1-section">
+      <div class="book-container">
+        <div class="step-header">
+          <span class="section-tag">STEP 1 OF 5</span>
+          <h2 class="section-title">Select Your Vehicle</h2>
+          <p class="step-subtitle">Choose from our curated fleet of premium vehicles.</p>
+        </div>
+
+        <div class="filter-bar glassmorphism">
+          <button class="filter-btn active" onclick="filterCars('all',this)">All</button>
+          <button class="filter-btn" onclick="filterCars('sedan',this)">Sedan</button>
+          <button class="filter-btn" onclick="filterCars('suv',this)">SUV</button>
+          <button class="filter-btn" onclick="filterCars('sports',this)">Sports</button>
+          <button class="filter-btn" onclick="filterCars('luxury',this)">Luxury</button>
+          <button class="filter-btn" onclick="filterCars('electric',this)">Electric</button>
+        </div>
+
+        <div class="book-cars-grid" id="carsGrid">
+
+          <div class="bcar-card glassmorphism" data-cat="luxury" data-id="1" data-name="Mercedes-Benz S-Class" data-price="450">
+            <div class="bcar-img-wrap">
+              <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=700&q=75" alt="Mercedes S-Class" loading="lazy">
+              <span class="avail-badge avail">Available</span>
+            </div>
+            <div class="bcar-body">
+              <div class="bcar-top">
+                <div><h3 class="bcar-name">Mercedes-Benz S-Class</h3><span class="bcar-cat">Luxury Sedan</span></div>
+                <div class="bcar-price"><b>$450</b><small>/day</small></div>
+              </div>
+              <div class="bcar-specs">
+                <span>⚙️ Auto</span><span>⛽ Petrol</span><span>💺 5</span><span>🧳 2</span><span>⚡ 450hp</span>
+              </div>
+              <div class="bcar-feats">
+                <span>❄️ A/C</span><span>🛰️ GPS</span><span>📡 BT</span><span>🎵 Audio</span>
+              </div>
+              <button class="btn-select" onclick="selectCar(this)">Select Vehicle</button>
+            </div>
+          </div>
+
+          <div class="bcar-card glassmorphism" data-cat="sports" data-id="2" data-name="Lamborghini Huracán" data-price="1200">
+            <div class="bcar-img-wrap">
+              <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=700&q=75" alt="Lamborghini Huracán" loading="lazy">
+              <span class="avail-badge avail">Available</span>
+            </div>
+            <div class="bcar-body">
+              <div class="bcar-top">
+                <div><h3 class="bcar-name">Lamborghini Huracán</h3><span class="bcar-cat">Sports Car</span></div>
+                <div class="bcar-price"><b>$1,200</b><small>/day</small></div>
+              </div>
+              <div class="bcar-specs">
+                <span>⚙️ Auto</span><span>⛽ Petrol</span><span>💺 2</span><span>🧳 1</span><span>⚡ 630hp</span>
+              </div>
+              <div class="bcar-feats">
+                <span>❄️ A/C</span><span>🛰️ GPS</span><span>📡 BT</span><span>🎵 Audio</span>
+              </div>
+              <button class="btn-select" onclick="selectCar(this)">Select Vehicle</button>
+            </div>
+          </div>
+
+          <div class="bcar-card glassmorphism" data-cat="suv" data-id="3" data-name="Range Rover Autobiography" data-price="550">
+            <div class="bcar-img-wrap">
+              <img src="https://images.unsplash.com/photo-1486496572940-2bb2341fdbdf?w=700&q=75" alt="Range Rover" loading="lazy">
+              <span class="avail-badge avail">Available</span>
+            </div>
+            <div class="bcar-body">
+              <div class="bcar-top">
+                <div><h3 class="bcar-name">Range Rover Autobiography</h3><span class="bcar-cat">Luxury SUV</span></div>
+                <div class="bcar-price"><b>$550</b><small>/day</small></div>
+              </div>
+              <div class="bcar-specs">
+                <span>⚙️ Auto</span><span>⛽ Diesel</span><span>💺 7</span><span>🧳 4</span><span>⚡ 395hp</span>
+              </div>
+              <div class="bcar-feats">
+                <span>❄️ A/C</span><span>🛰️ GPS</span><span>📡 BT</span><span>🎵 Audio</span>
+              </div>
+              <button class="btn-select" onclick="selectCar(this)">Select Vehicle</button>
+            </div>
+          </div>
+
+          <div class="bcar-card glassmorphism" data-cat="sedan" data-id="4" data-name="BMW 7 Series" data-price="380">
+            <div class="bcar-img-wrap">
+              <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=75" alt="BMW 7 Series" loading="lazy">
+              <span class="avail-badge avail">Available</span>
+            </div>
+            <div class="bcar-body">
+              <div class="bcar-top">
+                <div><h3 class="bcar-name">BMW 7 Series</h3><span class="bcar-cat">Executive Sedan</span></div>
+                <div class="bcar-price"><b>$380</b><small>/day</small></div>
+              </div>
+              <div class="bcar-specs">
+                <span>⚙️ Auto</span><span>⛽ Petrol</span><span>💺 5</span><span>🧳 2</span><span>⚡ 536hp</span>
+              </div>
+              <div class="bcar-feats">
+                <span>❄️ A/C</span><span>🛰️ GPS</span><span>📡 BT</span><span>🎵 Audio</span>
+              </div>
+              <button class="btn-select" onclick="selectCar(this)">Select Vehicle</button>
+            </div>
+          </div>
+
+          <div class="bcar-card glassmorphism" data-cat="electric" data-id="5" data-name="Tesla Model S Plaid" data-price="420">
+            <div class="bcar-img-wrap">
+              <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=700&q=75" alt="Tesla Model S" loading="lazy">
+              <span class="avail-badge avail">Available</span>
+            </div>
+            <div class="bcar-body">
+              <div class="bcar-top">
+                <div><h3 class="bcar-name">Tesla Model S Plaid</h3><span class="bcar-cat">Electric Luxury</span></div>
+                <div class="bcar-price"><b>$420</b><small>/day</small></div>
+              </div>
+              <div class="bcar-specs">
+                <span>⚙️ Auto</span><span>⚡ Electric</span><span>💺 5</span><span>🧳 2</span><span>⚡ 1020hp</span>
+              </div>
+              <div class="bcar-feats">
+                <span>❄️ A/C</span><span>🛰️ GPS</span><span>📡 BT</span><span>🎵 Audio</span>
+              </div>
+              <button class="btn-select" onclick="selectCar(this)">Select Vehicle</button>
+            </div>
+          </div>
+
+          <div class="bcar-card glassmorphism" data-cat="sports" data-id="6" data-name="Porsche 911 Turbo S" data-price="850">
+            <div class="bcar-img-wrap">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&q=75" alt="Porsche 911" loading="lazy">
+              <span class="avail-badge limited">1 Left</span>
+            </div>
+            <div class="bcar-body">
+              <div class="bcar-top">
+                <div><h3 class="bcar-name">Porsche 911 Turbo S</h3><span class="bcar-cat">Sports Car</span></div>
+                <div class="bcar-price"><b>$850</b><small>/day</small></div>
+              </div>
+              <div class="bcar-specs">
+                <span>⚙️ PDK</span><span>⛽ Petrol</span><span>💺 2+2</span><span>🧳 1</span><span>⚡ 650hp</span>
+              </div>
+              <div class="bcar-feats">
+                <span>❄️ A/C</span><span>🛰️ GPS</span><span>📡 BT</span><span>🎵 Audio</span>
+              </div>
+              <button class="btn-select" onclick="selectCar(this)">Select Vehicle</button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="step-nav">
+          <span></span>
+          <button class="btn-next" id="step1Next" disabled onclick="goToStep(2)">
+            Continue to Rental Details
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== STEP 2: RENTAL DETAILS ======== -->
+    <section class="book-section" id="step2-section">
+      <div class="book-container">
+        <div class="step-layout">
+          <div class="step-form-col">
+            <div class="step-header">
+              <span class="section-tag">STEP 2 OF 5</span>
+              <h2 class="section-title">Rental Details</h2>
+              <p class="step-subtitle">Choose your dates, location, and preferences.</p>
+            </div>
+            <div class="glass-form-card glassmorphism">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Pickup Location</label>
+                  <div class="select-wrapper">
+                    <select class="form-input" id="pickupLoc">
+                      <option value="">Select City</option>
+                      <option>New York — 5th Ave</option>
+                      <option>Los Angeles — LAX</option>
+                      <option>Miami — Ocean Dr</option>
+                      <option>London — Piccadilly</option>
+                      <option>Paris — Champs-Élysées</option>
+                      <option>Dubai — Marina Mall</option>
+                    </select>
+                    <svg class="icon-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Drop-off Location</label>
+                  <div class="select-wrapper">
+                    <select class="form-input" id="dropoffLoc">
+                      <option value="">Same as Pickup</option>
+                      <option>New York — 5th Ave</option>
+                      <option>Los Angeles — LAX</option>
+                      <option>Miami — Ocean Dr</option>
+                      <option>London — Piccadilly</option>
+                      <option>Paris — Champs-Élysées</option>
+                      <option>Dubai — Marina Mall</option>
+                    </select>
+                    <svg class="icon-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Pickup Date</label>
+                  <div class="date-input-wrapper">
+                    <input type="date" class="form-input" id="pickupDate" onchange="recalc()">
+                    <svg class="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Pickup Time</label>
+                  <select class="form-input" id="pickupTime">
+                    <option>08:00 AM</option><option>09:00 AM</option><option>10:00 AM</option>
+                    <option>11:00 AM</option><option>12:00 PM</option><option>02:00 PM</option>
+                    <option>04:00 PM</option><option>06:00 PM</option><option>08:00 PM</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Return Date</label>
+                  <div class="date-input-wrapper">
+                    <input type="date" class="form-input" id="returnDate" onchange="recalc()">
+                    <svg class="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Return Time</label>
+                  <select class="form-input" id="returnTime">
+                    <option>08:00 AM</option><option>09:00 AM</option><option>10:00 AM</option>
+                    <option>11:00 AM</option><option>12:00 PM</option><option>02:00 PM</option>
+                    <option>04:00 PM</option><option>06:00 PM</option><option>08:00 PM</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Driver Age</label>
+                  <select class="form-input" id="driverAge">
+                    <option>21–25</option><option selected>26–35</option><option>36–50</option><option>51+</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Promo Code</label>
+                  <div class="promo-wrap">
+                    <input type="text" class="form-input" id="promoCode" placeholder="e.g. ROAD20">
+                    <button class="btn-promo" onclick="applyPromo()">Apply</button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Special Requests</label>
+                <textarea class="form-input" id="specialReqs" rows="3" placeholder="Child seat, colour preference, meet and greet, etc."></textarea>
+              </div>
+            </div>
+            <div class="step-nav">
+              <button class="btn-back" onclick="goToStep(1)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back
+              </button>
+              <button class="btn-next" onclick="validateStep2()">
+                Continue
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+          <aside class="summary-sidebar" id="sidebar">
+            <div class="summary-card glassmorphism">
+              <h3 class="sum-title">Booking Summary</h3>
+              <div class="sum-car" id="sumCar"><div class="sum-empty"><span>No vehicle selected</span></div></div>
+              <div class="sum-rows">
+                <div class="sum-row"><span>Pickup</span><span id="sPickup">—</span></div>
+                <div class="sum-row"><span>Return</span><span id="sReturn">—</span></div>
+                <div class="sum-row"><span>Duration</span><span id="sDays">—</span></div>
+                <div class="sum-div"></div>
+                <div class="sum-row"><span>Base Price</span><span id="sBase">$0</span></div>
+                <div class="sum-row"><span>Insurance</span><span id="sInsurance">$50/day</span></div>
+                <div class="sum-row"><span>Add-ons</span><span id="sAddons">$0</span></div>
+                <div class="sum-row" id="sPromoRow" style="display:none"><span>Promo</span><span id="sPromo" class="text-red">-$0</span></div>
+                <div class="sum-row"><span>Tax (10%)</span><span id="sTax">$0</span></div>
+                <div class="sum-div"></div>
+                <div class="sum-total"><span>Grand Total</span><span class="total-num" id="sTotal">$0</span></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== STEP 3: PERSONAL INFO ======== -->
+    <section class="book-section" id="step3-section">
+      <div class="book-container">
+        <div class="step-layout">
+          <div class="step-form-col">
+            <div class="step-header">
+              <span class="section-tag">STEP 3 OF 5</span>
+              <h2 class="section-title">Personal Information</h2>
+              <p class="step-subtitle">Your details are protected by 256-bit encryption.</p>
+            </div>
+            <div class="glass-form-card glassmorphism">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">First Name *</label>
+                  <input type="text" class="form-input" id="fName" placeholder="John">
+                  <span class="ferr" id="fNameErr"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name *</label>
+                  <input type="text" class="form-input" id="lName" placeholder="Doe">
+                  <span class="ferr" id="lNameErr"></span>
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Email Address *</label>
+                  <input type="email" class="form-input" id="emailFld" placeholder="john@example.com">
+                  <span class="ferr" id="emailErr"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Phone Number *</label>
+                  <input type="tel" class="form-input" id="phoneFld" placeholder="+1 555 000 0000">
+                  <span class="ferr" id="phoneErr"></span>
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Driving License No. *</label>
+                  <input type="text" class="form-input" id="licNo" placeholder="DL-XXXXXXXX">
+                  <span class="ferr" id="licErr"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">License Expiry *</label>
+                  <input type="date" class="form-input" id="licExp">
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Country</label>
+                  <select class="form-input" id="cntry">
+                    <option>United States</option><option>United Kingdom</option>
+                    <option>Canada</option><option>Australia</option>
+                    <option>UAE</option><option>France</option><option>Germany</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">City</label>
+                  <input type="text" class="form-input" id="cityFld" placeholder="New York">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-input" id="addrFld" placeholder="123 Main St, Apt 4B">
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label">Emergency Contact Name</label>
+                  <input type="text" class="form-input" id="emName" placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Emergency Contact Phone</label>
+                  <input type="tel" class="form-input" id="emPhone" placeholder="+1 555 000 0001">
+                </div>
+              </div>
+              <div class="form-group checkbox-group">
+                <label class="cb-label">
+                  <input type="checkbox" id="terms">
+                  <span class="cb-box"></span>
+                  <span class="cb-text">I agree to the <a href="#" class="link-red">Terms & Conditions</a> and <a href="#" class="link-red">Privacy Policy</a></span>
+                </label>
+                <span class="ferr" id="termsErr"></span>
+              </div>
+            </div>
+            <div class="step-nav">
+              <button class="btn-back" onclick="goToStep(2)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back
+              </button>
+              <button class="btn-next" onclick="validateStep3()">
+                Continue to Add-Ons &amp; Payment
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </div>
+          <aside class="summary-sidebar">
+            <div class="summary-card glassmorphism">
+              <h3 class="sum-title">Booking Summary</h3>
+              <div class="sum-car" id="sumCar3"></div>
+              <div class="sum-rows">
+                <div class="sum-row"><span>Duration</span><span id="sDays3">—</span></div>
+                <div class="sum-div"></div>
+                <div class="sum-row"><span>Base Price</span><span id="sBase3">$0</span></div>
+                <div class="sum-row"><span>Tax</span><span id="sTax3">$0</span></div>
+                <div class="sum-div"></div>
+                <div class="sum-total"><span>Grand Total</span><span class="total-num" id="sTotal3">$0</span></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== STEP 4: ADD-ONS + PAYMENT ======== -->
+    <section class="book-section" id="step4-section">
+      <div class="book-container">
+        <div class="step-layout">
+          <div class="step-form-col">
+
+            <!-- Add-Ons -->
+            <div class="step-header">
+              <span class="section-tag">STEP 4 OF 5</span>
+              <h2 class="section-title">Add-On Services</h2>
+              <p class="step-subtitle">Enhance your journey with premium extras.</p>
+            </div>
+            <div class="addons-grid" id="addonsGrid">
+              <div class="addon-card glassmorphism" data-price="25" data-name="GPS Navigation">
+                <div class="addon-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg></div>
+                <div class="addon-info"><h4>GPS Navigation</h4><p>HD satellite navigation</p><span class="addon-price">+$25/day</span></div>
+                <label class="toggle"><input type="checkbox" class="addon-cb" onchange="recalc()"><span class="tog-track"><span class="tog-thumb"></span></span></label>
+              </div>
+              <div class="addon-card glassmorphism" data-price="15" data-name="Child Seat">
+                <div class="addon-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                <div class="addon-info"><h4>Child Seat</h4><p>EU-certified safety seat</p><span class="addon-price">+$15/day</span></div>
+                <label class="toggle"><input type="checkbox" class="addon-cb" onchange="recalc()"><span class="tog-track"><span class="tog-thumb"></span></span></label>
+              </div>
+              <div class="addon-card glassmorphism" data-price="40" data-name="Additional Driver">
+                <div class="addon-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div class="addon-info"><h4>Additional Driver</h4><p>Second authorised driver</p><span class="addon-price">+$40/day</span></div>
+                <label class="toggle"><input type="checkbox" class="addon-cb" onchange="recalc()"><span class="tog-track"><span class="tog-thumb"></span></span></label>
+              </div>
+              <div class="addon-card glassmorphism" data-price="60" data-name="Premium Insurance">
+                <div class="addon-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                <div class="addon-info"><h4>Premium Insurance</h4><p>Full comprehensive coverage</p><span class="addon-price">+$60/day</span></div>
+                <label class="toggle"><input type="checkbox" class="addon-cb" onchange="recalc()"><span class="tog-track"><span class="tog-thumb"></span></span></label>
+              </div>
+              <div class="addon-card glassmorphism" data-price="20" data-name="Wi-Fi Hotspot">
+                <div class="addon-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg></div>
+                <div class="addon-info"><h4>Wi-Fi Hotspot</h4><p>Unlimited 4G connectivity</p><span class="addon-price">+$20/day</span></div>
+                <label class="toggle"><input type="checkbox" class="addon-cb" onchange="recalc()"><span class="tog-track"><span class="tog-thumb"></span></span></label>
+              </div>
+              <div class="addon-card glassmorphism" data-price="30" data-name="Fuel Package">
+                <div class="addon-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V10l9-8 9 8v12H3z"/><path d="M9 22V12h6v10"/></svg></div>
+                <div class="addon-info"><h4>Fuel Package</h4><p>Pre-paid full tank</p><span class="addon-price">+$30/day</span></div>
+                <label class="toggle"><input type="checkbox" class="addon-cb" onchange="recalc()"><span class="tog-track"><span class="tog-thumb"></span></span></label>
+              </div>
+              <div class="addon-card glassmorphism" data-price="35" data-name="Roadside Assistance">
+                <div class="addon-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                <div class="addon-info"><h4>Roadside Assistance</h4><p>24/7 emergency help</p><span class="addon-price">+$35/day</span></div>
+                <label class="toggle"><input type="checkbox" class="addon-cb" onchange="recalc()"><span class="tog-track"><span class="tog-thumb"></span></span></label>
+              </div>
+              <div class="addon-card glassmorphism" data-price="80" data-name="Airport Pickup">
+                <div class="addon-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5 18 1 16 1 14.5 2.5L11 6 2.8 4.2l-1.4 1.4L9 12l-2 2-2-1-1.4 1.4 2 2 2 2 1.4-1.4-1-2 2-2 6.4 6.6 1.4-1.4z"/></svg></div>
+                <div class="addon-info"><h4>Airport Pickup</h4><p>VIP terminal meet &amp; greet</p><span class="addon-price">+$80/trip</span></div>
+                <label class="toggle"><input type="checkbox" class="addon-cb" onchange="recalc()"><span class="tog-track"><span class="tog-thumb"></span></span></label>
+              </div>
+            </div>
+
+            <!-- Payment -->
+            <div class="step-header" style="margin-top:60px">
+              <h2 class="section-title">Payment</h2>
+              <p class="step-subtitle">All transactions are 256-bit SSL encrypted.</p>
+            </div>
+            <div class="glass-form-card glassmorphism">
+              <div class="pm-tabs">
+                <button class="pm-tab active" onclick="switchPM('card',this)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg> Card
+                </button>
+                <button class="pm-tab" onclick="switchPM('upi',this)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg> UPI
+                </button>
+                <button class="pm-tab" onclick="switchPM('nb',this)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Net Banking
+                </button>
+                <button class="pm-tab" onclick="switchPM('gpay',this)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg> GPay
+                </button>
+                <button class="pm-tab" onclick="switchPM('wallet',this)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/></svg> Wallet
+                </button>
+              </div>
+
+              <!-- Card Panel -->
+              <div class="pm-panel active" id="panel-card">
+                <div class="cc-visual" id="ccVisual">
+                  <div class="cc-chip">
+                    <svg viewBox="0 0 40 30"><rect width="40" height="30" rx="4" fill="rgba(255,255,255,.15)"/><line x1="0" y1="10" x2="40" y2="10" stroke="rgba(255,255,255,.2)"/><line x1="0" y1="20" x2="40" y2="20" stroke="rgba(255,255,255,.2)"/><line x1="14" y1="0" x2="14" y2="30" stroke="rgba(255,255,255,.2)"/><line x1="26" y1="0" x2="26" y2="30" stroke="rgba(255,255,255,.2)"/></svg>
+                  </div>
+                  <div class="cc-num" id="ccNum">•••• •••• •••• ••••</div>
+                  <div class="cc-foot">
+                    <div><div class="cc-lbl">CARD HOLDER</div><div class="cc-val" id="ccHolder">YOUR NAME</div></div>
+                    <div><div class="cc-lbl">EXPIRES</div><div class="cc-val" id="ccExp">MM/YY</div></div>
+                  </div>
+                </div>
+                <div class="form-group"><label class="form-label">Card Holder Name</label><input type="text" class="form-input" id="cName" placeholder="John Doe" oninput="updateCC()"></div>
+                <div class="form-group"><label class="form-label">Card Number</label><input type="text" class="form-input" id="cNum" placeholder="0000 0000 0000 0000" maxlength="19" oninput="fmtCard(this);updateCC()"></div>
+                <div class="form-row-2">
+                  <div class="form-group"><label class="form-label">Expiry</label><input type="text" class="form-input" id="cExp" placeholder="MM/YY" maxlength="5" oninput="fmtExp(this);updateCC()"></div>
+                  <div class="form-group"><label class="form-label">CVV</label><input type="password" class="form-input" id="cCvv" placeholder="•••" maxlength="4"></div>
+                </div>
+                <label class="cb-label" style="margin-top:4px"><input type="checkbox"><span class="cb-box"></span><span class="cb-text">Save card for future bookings</span></label>
+              </div>
+
+              <div class="pm-panel" id="panel-upi">
+                <div class="form-group"><label class="form-label">UPI ID</label><input type="text" class="form-input" placeholder="yourname@upi"></div>
+                <p class="panel-note">Enter your UPI ID and approve the payment request in your banking app.</p>
+              </div>
+
+              <div class="pm-panel" id="panel-nb">
+                <div class="form-group"><label class="form-label">Select Bank</label>
+                  <select class="form-input"><option>Select your bank</option><option>Chase</option><option>Bank of America</option><option>Barclays</option><option>HSBC</option><option>Citibank</option></select>
+                </div>
+                <p class="panel-note">You'll be redirected to your bank's secure portal to complete payment.</p>
+              </div>
+
+              <div class="pm-panel" id="panel-gpay">
+                <div class="gpay-box">
+                  <div class="gpay-logo"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span> <span>Pay</span></div>
+                  <p>Tap the button below to pay securely with Google Pay.</p>
+                  <button class="btn-gpay" onclick="handlePayment()">Pay with Google Pay</button>
+                </div>
+              </div>
+
+              <div class="pm-panel" id="panel-wallet">
+                <div class="wallet-card glassmorphism"><span>Available Balance</span><span class="wallet-amt">$1,240.00</span></div>
+                <p class="panel-note" style="margin-top:12px">Amount will be deducted from your Roadify Wallet instantly.</p>
+              </div>
+
+              <div class="secure-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                256-bit SSL Encrypted · PCI DSS Compliant · Your data is safe
+              </div>
+            </div>
+
+            <div class="step-nav">
+              <button class="btn-back" onclick="goToStep(3)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+                Back
+              </button>
+              <button class="btn-pay" onclick="handlePayment()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Confirm &amp; Pay <span id="payTotal"></span>
+              </button>
+            </div>
+          </div>
+
+          <aside class="summary-sidebar">
+            <div class="summary-card glassmorphism">
+              <h3 class="sum-title">Booking Summary</h3>
+              <div class="sum-car" id="sumCar4"></div>
+              <div class="sum-rows">
+                <div class="sum-row"><span>Duration</span><span id="sDays4">—</span></div>
+                <div class="sum-div"></div>
+                <div class="sum-row"><span>Base Price</span><span id="sBase4">$0</span></div>
+                <div class="sum-row"><span>Insurance</span><span id="sIns4">$0</span></div>
+                <div class="sum-row"><span>Add-ons</span><span id="sAdd4">$0</span></div>
+                <div class="sum-row"><span>Tax (10%)</span><span id="sTax4">$0</span></div>
+                <div class="sum-div"></div>
+                <div class="sum-total"><span>Grand Total</span><span class="total-num" id="sTotal4">$0</span></div>
+              </div>
+              <button class="btn-modify" onclick="goToStep(1)">✏ Modify Booking</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======== STEP 5: CONFIRMATION ======== -->
+    <section class="book-section" id="step5-section">
+      <div class="book-container">
+        <div class="confirm-wrap">
+          <div class="confirm-icon">
+            <svg class="conf-svg" viewBox="0 0 120 120">
+              <circle class="conf-ring" cx="60" cy="60" r="54" fill="none" stroke="#ff2a4b" stroke-width="5"/>
+              <polyline class="conf-tick" points="34,62 52,80 86,44" fill="none" stroke="#ff2a4b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="conf-heading">Booking Confirmed!</h2>
+          <p class="conf-sub">Thank you for choosing Roadify. Your luxury experience awaits.</p>
+          <div class="conf-ref glassmorphism">
+            <span class="ref-lbl">Booking Reference</span>
+            <span class="ref-code" id="bookRef">RDY-2024-00000</span>
+          </div>
+          <div class="conf-summary glassmorphism" id="confSummary"></div>
+          <div class="conf-btns">
+            <button class="cbtn cbtn-outline" onclick="window.print()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              Download Invoice
+            </button>
+            <button class="cbtn cbtn-outline" onclick="">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View Booking
+            </button>
+            <button class="cbtn cbtn-red" onclick="window.location.href='index.html'">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              Return Home
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="book-section benefits-wrap">
+      <div class="book-container">
+        <div class="benefits-grid">
+          <div class="benefit-card glassmorphism">
+            <div class="ben-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 12 8 7 12 17 15 11 19 16 21 12"/></svg></div>
+            <h4>Free Cancellation</h4>
+            <p>Cancel up to 24h before pickup at no charge.</p>
+          </div>
+          <div class="benefit-card glassmorphism">
+            <div class="ben-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <h4>24/7 Support</h4>
+            <p>Our luxury concierge team is always on call.</p>
+          </div>
+          <div class="benefit-card glassmorphism">
+            <div class="ben-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <h4>Premium Insurance</h4>
+            <p>Comprehensive coverage included on every rental.</p>
+          </div>
+          <div class="benefit-card glassmorphism">
+            <div class="ben-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V12M12 12l-4-4M12 12l4-4M4 20h16"/></svg></div>
+            <h4>Unlimited KMs</h4>
+            <p>Drive as far as you want with no mileage cap.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="book-section faq-wrap">
+      <div class="book-container">
+        <div class="step-header" style="text-align:center;margin-bottom:40px">
+          <span class="section-tag">GOT QUESTIONS?</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">How do I modify my booking? <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><p>Log in to your Roadify account, go to "My Bookings" and click "Modify". Changes can be made up to 24 hours before pickup.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Can I cancel my reservation? <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><p>Yes. Free cancellation up to 24 hours before pickup. Cancellations within 24 hours may incur a one-day charge.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">What documents are required? <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><p>Valid driving license (1+ year), government-issued photo ID, and a credit card in the driver's name for the security deposit.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Do you require a security deposit? <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><p>Yes — a refundable deposit ($500–$3,000 depending on vehicle class) is held on your card at pickup and released within 5 business days of return.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">Can someone else drive the vehicle? <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-a"><p>Yes. Add an Additional Driver for a small daily fee. All drivers must hold a valid license and meet the minimum age requirement.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="book-section cta-wrap">
+      <div class="book-container">
+        <div class="book-cta glassmorphism">
+          <div>
+            <h2 class="cta-h">Ready for an Unforgettable Drive?</h2>
+            <p class="cta-p">Luxury vehicles. Premium service. Instant booking.</p>
+          </div>
+          <div class="cta-btns">
+            <button class="cbtn cbtn-outline" onclick="goToStep(1);window.scrollTo({top:0,behavior:'smooth'})">Browse More Cars</button>
+            <button class="cbtn cbtn-red" onclick="window.location.href='index.html#contact'">Contact Support</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p>© 2026 Roadify Inc. All rights reserved. RENT. DRIVE. DISCOVER.</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script type="module" src="/book.js"></script>
+</body>
+</html>

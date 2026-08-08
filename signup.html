@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadify — Create Account</title>
+  <meta name="description" content="Join Roadify and unlock premium luxury driving experiences. Create your account today.">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/signup.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="signup-page">
+
+  <!-- Fixed Canvas Backdrop & Grid -->
+  <div class="signup-bg-wrapper">
+    <div class="signup-bg-gradient"></div>
+    <div class="signup-bg-grid"></div>
+  </div>
+
+  <!-- HEADER / NAVBAR -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+          <path d="M8 32L18 8H26L16 32H8Z" fill="#ff2a4b" />
+          <path d="M22 16L32 16L27 24L17 24L22 16Z" fill="#e11d48" />
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Roadify</span>
+          <span class="brand-tagline">RENT. DRIVE. DISCOVER.</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <div class="nav-indicator"></div>
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#cars" class="nav-link">Cars</a>
+        <a href="index.html#deals" class="nav-link">Deals</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#locations" class="nav-link">Locations</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-signin" onclick="window.location.href='signin.html'">Sign In</button>
+        <button class="btn-book" onclick="window.location.href='book.html'">Book Now</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SCROLLABLE CONTENT -->
+  <main class="signup-main">
+
+    <!-- PAGE HERO HEADER -->
+    <section class="signup-hero">
+      <div class="signup-hero-inner">
+        <span class="section-tag">MEMBERSHIP REGISTRATION</span>
+        <h1 class="signup-hero-title">CREATE YOUR<br><span class="text-red">ROADIFY ACCOUNT</span></h1>
+        <p class="signup-hero-subtitle">Join Roadify and unlock premium luxury driving experiences.</p>
+        <div class="hero-divider">
+          <span class="divider-line"></span>
+          <span class="divider-diamond"></span>
+          <span class="divider-line"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTRATION SECTION -->
+    <section class="signup-section">
+      <div class="signup-container">
+
+        <!-- MAIN REGISTRATION CARD -->
+        <div class="signup-card glassmorphism border-glow">
+          
+          <form id="signup-form" class="signup-form" novalidate>
+
+            <!-- 1. PERSONAL INFORMATION -->
+            <div class="form-block">
+              <h3 class="block-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Personal Information
+              </h3>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="firstName">First Name *</label>
+                  <input type="text" id="firstName" class="form-input" placeholder="e.g. Alexander" required>
+                  <span class="error-message" id="firstName-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" class="form-input" placeholder="e.g. Vance" required>
+                  <span class="error-message" id="lastName-error"></span>
+                </div>
+              </div>
+
+              <div class="form-row-3">
+                <div class="form-group">
+                  <label class="form-label" for="dob">Date of Birth *</label>
+                  <input type="date" id="dob" class="form-input" required>
+                  <span class="error-message" id="dob-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="gender">Gender</label>
+                  <div class="select-wrapper">
+                    <select id="gender" class="form-input">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                      <option value="prefer_not">Prefer not to say</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="nationality">Nationality</label>
+                  <input type="text" id="nationality" class="form-input" placeholder="e.g. American">
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. ACCOUNT INFORMATION -->
+            <div class="form-block">
+              <h3 class="block-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                Account Credentials
+              </h3>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="signupEmail">Email Address *</label>
+                  <input type="email" id="signupEmail" class="form-input" placeholder="name@example.com" required>
+                  <span class="error-message" id="email-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="phone">Mobile Number *</label>
+                  <input type="tel" id="phone" class="form-input" placeholder="+1 (555) 000-0000" required>
+                  <span class="error-message" id="phone-error"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="username">Username *</label>
+                <input type="text" id="username" class="form-input" placeholder="Choose a unique username" required>
+                <span class="error-message" id="username-error"></span>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="signupPassword">Password *</label>
+                  <div class="password-input-group">
+                    <input type="password" id="signupPassword" class="form-input" placeholder="At least 8 characters" required>
+                    <button type="button" id="toggle-signup-password" class="btn-icon-eye" aria-label="Toggle Password Visibility">
+                      <svg class="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </div>
+                  <!-- Password Strength Meter -->
+                  <div class="strength-meter">
+                    <div id="strength-bar" class="strength-bar"></div>
+                  </div>
+                  <span id="strength-text" class="strength-text">Password strength</span>
+                  <span class="error-message" id="password-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="confirmPassword">Confirm Password *</label>
+                  <input type="password" id="confirmPassword" class="form-input" placeholder="Re-enter password" required>
+                  <span class="error-message" id="confirm-error"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. DRIVING INFORMATION -->
+            <div class="form-block">
+              <h3 class="block-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                Driving Credentials
+              </h3>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="licenseNo">Driving License Number *</label>
+                  <input type="text" id="licenseNo" class="form-input" placeholder="e.g. DL-987654321" required>
+                  <span class="error-message" id="license-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="licenseExpiry">License Expiry Date *</label>
+                  <input type="date" id="licenseExpiry" class="form-input" required>
+                  <span class="error-message" id="expiry-error"></span>
+                </div>
+              </div>
+
+              <div class="form-row-3">
+                <div class="form-group">
+                  <label class="form-label" for="issueCountry">Country of Issue</label>
+                  <input type="text" id="issueCountry" class="form-input" placeholder="e.g. United States">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="experienceYears">Driving Experience (Years)</label>
+                  <select id="experienceYears" class="form-input">
+                    <option value="1-2">1 – 2 Years</option>
+                    <option value="3-5" selected>3 – 5 Years</option>
+                    <option value="5-10">5 – 10 Years</option>
+                    <option value="10+">10+ Years</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="driverAge">Driver Age Range</label>
+                  <select id="driverAge" class="form-input">
+                    <option value="21-25">21 – 25 Years</option>
+                    <option value="26-35" selected>26 – 35 Years</option>
+                    <option value="36-50">36 – 50 Years</option>
+                    <option value="50+">50+ Years</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Upload Driving License (Optional) -->
+              <div class="form-group">
+                <label class="form-label">Upload Driving License (Optional)</label>
+                <div class="upload-dropzone" id="upload-dropzone">
+                  <input type="file" id="licenseFile" accept="image/*,.pdf" class="file-input">
+                  <div class="upload-content">
+                    <div class="upload-icon">
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                      </svg>
+                    </div>
+                    <p class="upload-title">Drag & Drop your License file here or <span class="text-red">Browse</span></p>
+                    <p class="upload-sub">Supports JPG, PNG, PDF (Max 10MB)</p>
+                  </div>
+                  <div id="file-preview" class="file-preview" style="display:none;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. ADDRESS INFORMATION -->
+            <div class="form-block">
+              <h3 class="block-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Residential Address
+              </h3>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="country">Country</label>
+                  <select id="country" class="form-input">
+                    <option value="US">United States</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="CA">Canada</option>
+                    <option value="AU">Australia</option>
+                    <option value="AE">United Arab Emirates</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="state">State / Province</label>
+                  <input type="text" id="state" class="form-input" placeholder="e.g. New York">
+                </div>
+              </div>
+
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label class="form-label" for="city">City</label>
+                  <input type="text" id="city" class="form-input" placeholder="e.g. Manhattan">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="postalCode">Postal Code</label>
+                  <input type="text" id="postalCode" class="form-input" placeholder="e.g. 10001">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="street">Street Address</label>
+                <input type="text" id="street" class="form-input" placeholder="e.g. 742 Evergreen Terrace">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="apartment">Apartment / Landmark (Optional)</label>
+                <input type="text" id="apartment" class="form-input" placeholder="Apt 4B, Suite 100">
+              </div>
+            </div>
+
+            <!-- 5. ACCOUNT PREFERENCES -->
+            <div class="form-block">
+              <h3 class="block-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                Account Preferences
+              </h3>
+
+              <div class="preferences-grid">
+                <label class="custom-cb-label">
+                  <input type="checkbox" id="pref-offers" checked>
+                  <span class="cb-box"></span>
+                  <span class="cb-text">Receive exclusive member offers and luxury vehicle updates</span>
+                </label>
+
+                <label class="custom-cb-label">
+                  <input type="checkbox" id="pref-emails" checked>
+                  <span class="cb-box"></span>
+                  <span class="cb-text">Receive promotional emails & monthly newsletters</span>
+                </label>
+
+                <label class="custom-cb-label">
+                  <input type="checkbox" id="pref-sms">
+                  <span class="cb-box"></span>
+                  <span class="cb-text">Receive SMS booking confirmations and emergency alerts</span>
+                </label>
+
+                <label class="custom-cb-label">
+                  <input type="checkbox" id="pref-remember" checked>
+                  <span class="cb-box"></span>
+                  <span class="cb-text">Remember my preferences across devices</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- 6. TERMS & CONDITIONS -->
+            <div class="terms-block">
+              <label class="custom-cb-label terms-cb-label">
+                <input type="checkbox" id="terms-agree" required>
+                <span class="cb-box"></span>
+                <span class="cb-text">
+                  I agree to the 
+                  <a href="#" class="animated-link">Terms & Conditions</a>, 
+                  <a href="#" class="animated-link">Privacy Policy</a>, and 
+                  <a href="#" class="animated-link">Rental Agreement</a>.
+                </span>
+              </label>
+              <span class="error-message" id="terms-error"></span>
+            </div>
+
+            <!-- PRIMARY SUBMIT BUTTON -->
+            <button type="submit" id="btn-submit-signup" class="btn-submit-signup" disabled>
+              <span class="btn-text">CREATE ACCOUNT</span>
+              <span class="btn-spinner" id="btn-spinner" style="display:none;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                </svg>
+              </span>
+            </button>
+
+            <!-- SOCIAL REGISTRATION DIVIDER -->
+            <div class="social-divider">
+              <span>OR SIGN UP WITH</span>
+            </div>
+
+            <!-- SOCIAL BUTTONS -->
+            <div class="social-buttons">
+              <button type="button" class="btn-social">
+                <svg width="18" height="18" viewBox="0 0 24 24">
+                  <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.3 8.9 5 12 5z"/>
+                  <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/>
+                  <path fill="#FBBC05" d="M5.3 14.7c-.2-.7-.4-1.5-.4-2.3s.2-1.6.4-2.3L1.6 7.2C.6 9.2 0 11.5 0 14s.6 4.8 1.6 6.8l3.7-2.9z"/>
+                  <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.3-6.7-5.3L1.6 16c1.9 3.8 5.8 7 10.4 7z"/>
+                </svg>
+                Google
+              </button>
+
+              <button type="button" class="btn-social">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.63c.68-.82 1.14-1.97.98-3.13-.98.04-2.17.65-2.87 1.47-.63.73-1.18 1.91-1.03 3.04 1.1.09 2.24-.56 2.92-1.38z"/>
+                </svg>
+                Apple
+              </button>
+
+              <button type="button" class="btn-social">
+                <svg width="18" height="18" viewBox="0 0 24 24">
+                  <path fill="#F25022" d="M1 1h10v10H1z"/>
+                  <path fill="#7FBA00" d="M13 1h10v10H13z"/>
+                  <path fill="#00A4EF" d="M1 13h10v10H1z"/>
+                  <path fill="#FFB900" d="M13 13h10v10H13z"/>
+                </svg>
+                Microsoft
+              </button>
+            </div>
+
+            <!-- ALREADY HAVE ACCOUNT LINK -->
+            <div class="signin-redirect">
+              <span>Already have an account?</span>
+              <a href="signin.html" class="register-link">Sign In</a>
+            </div>
+
+          </form>
+
+          <!-- SUCCESS STATE DISPLAY -->
+          <div id="signup-success-state" class="signup-success-state" style="display:none;">
+            <div class="success-icon-wrap">
+              <svg class="success-svg" viewBox="0 0 100 100">
+                <circle class="success-circle" cx="50" cy="50" r="44" fill="none" stroke="#ff2a4b" stroke-width="4"/>
+                <polyline class="success-check" points="28,52 44,68 72,36" fill="none" stroke="#ff2a4b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h2>Welcome to Roadify!</h2>
+            <p>Your account has been successfully created. You can now reserve luxury vehicles instantly.</p>
+            <div class="success-actions">
+              <button class="btn-success-action btn-red-gradient" onclick="window.location.href='signin.html'">Sign In Now</button>
+              <button class="btn-success-action btn-glass-outline" onclick="window.location.href='book.html'">Browse Cars</button>
+              <button class="btn-success-action btn-glass-outline" onclick="window.location.href='index.html'">Go to Dashboard</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SECURITY NOTICE CARD -->
+        <div class="security-notice glassmorphism">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>🔒 Your information is securely encrypted and protected using modern security standards.</span>
+        </div>
+
+        <!-- ACCOUNT BENEFITS GRID -->
+        <div class="benefits-section">
+          <div class="benefits-header">
+            <span class="section-tag">ROADIFY EXCLUSIVES</span>
+            <h2 class="benefits-title">Member Privileges</h2>
+          </div>
+          <div class="benefits-grid">
+
+            <div class="benefit-card glassmorphism">
+              <div class="ben-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M19 17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2z"></path>
+                  <circle cx="7.5" cy="17.5" r="2.5"></circle>
+                  <circle cx="16.5" cy="17.5" r="2.5"></circle>
+                </svg>
+              </div>
+              <h4>Premium Luxury Fleet</h4>
+              <p>Access our hand-curated collection of high-performance supercars and executive sedans.</p>
+            </div>
+
+            <div class="benefit-card glassmorphism">
+              <div class="ben-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <h4>Instant Online Booking</h4>
+              <p>Reserve any car in under 2 minutes with paperless digital verification.</p>
+            </div>
+
+            <div class="benefit-card glassmorphism">
+              <div class="ben-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                </svg>
+              </div>
+              <h4>Exclusive Member Discounts</h4>
+              <p>Enjoy seasonal perks, priority upgrades, and up to 20% off long-term rentals.</p>
+            </div>
+
+            <div class="benefit-card glassmorphism">
+              <div class="ben-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+              </div>
+              <h4>24/7 Customer Support</h4>
+              <p>Dedicated luxury concierge team available round the clock for assistance.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p>© 2026 Roadify Inc. All rights reserved. RENT. DRIVE. DISCOVER.</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script type="module" src="/signup.js"></script>
+</body>
+
+</html>

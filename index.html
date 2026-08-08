@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roadify - Premium Car Rentals</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="page-transition-overlay" class="page-transition-overlay" aria-hidden="true"></div>
+
+  <!-- Fixed Canvas Backdrop -->
+  <div class="canvas-wrapper">
+    <canvas id="animation-canvas"></canvas>
+    <div class="canvas-overlay"></div>
+  </div>
+
+  <!-- Preloader -->
+  <div id="loader" class="loader-container">
+    <div class="loader-content">
+      <div class="logo-brand">
+        <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 32L18 8H26L16 32H8Z" fill="#ff2a4b" />
+          <path d="M22 16L32 16L27 24L17 24L22 16Z" fill="#e11d48" />
+        </svg>
+        <span>Roadify</span>
+      </div>
+      <div class="spinner"></div>
+      <div class="loader-bar-bg">
+        <div id="loader-bar" class="loader-bar"></div>
+      </div>
+      <p id="loader-text" class="loader-text">Loading 0%</p>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+          <path d="M8 32L18 8H26L16 32H8Z" fill="#ff2a4b" />
+          <path d="M22 16L32 16L27 24L17 24L22 16Z" fill="#e11d48" />
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Roadify</span>
+          <span class="brand-tagline">RENT. DRIVE. DISCOVER.</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <div class="nav-indicator"></div>
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#cars" class="nav-link">Cars</a>
+        <a href="#deals" class="nav-link">Deals</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#locations" class="nav-link">Locations</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-signin" onclick="window.location.href='signin.html'">Sign In</button>
+        <button class="btn-book" onclick="window.location.href='book.html'">Book Now</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scrollable Content Overlay -->
+  <main id="main-content" class="content-overlay">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="section hero-section">
+      <div class="hero-container">
+        <div class="hero-left">
+          <h1 class="hero-title">
+            FREE ROADS.<br>
+            <span class="text-red">GREAT CHOICES.</span>
+          </h1>
+          <p class="hero-subtitle">
+            Premium cars. Flexible rentals.<br>
+            Your journey, your way.
+          </p>
+
+          <!-- Search Widget Form -->
+          <div class="search-widget">
+            <h3 class="widget-title">Find Your Perfect Car</h3>
+
+            <div class="form-group">
+              <label class="form-label">Pick-up Location</label>
+              <div class="select-wrapper">
+                <svg class="icon-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 21s-8-7.5-8-12a8 8 0 1 1 16 0c0 4.5-8 12-8 12z" />
+                  <circle cx="12" cy="9" r="3" />
+                </svg>
+                <select class="form-input">
+                  <option value="">Select location</option>
+                  <option value="newyork">New York Airport (JFK)</option>
+                  <option value="losangeles">Los Angeles Int (LAX)</option>
+                  <option value="miami">Miami Downtown</option>
+                  <option value="london">London Heathrow (LHR)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Pick-up Date</label>
+                <div class="date-input-wrapper">
+                  <svg class="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  <input type="text" class="form-input" value="May 20, 2024" readonly>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Drop-off Date</label>
+                <div class="date-input-wrapper">
+                  <svg class="icon-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                  <input type="text" class="form-input" value="May 23, 2024" readonly>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Driver Age</label>
+              <select class="form-input">
+                <option value="25+">25+</option>
+                <option value="21-24">21 - 24</option>
+                <option value="18-20">18 - 20</option>
+              </select>
+            </div>
+
+            <button class="btn-search-cars">
+              <span>Search Cars</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <!-- Slide indicators / Hero Visual Space -->
+          <div class="carousel-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Bar Below Hero -->
+      <div class="features-bar-container">
+        <div class="features-grid">
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <polyline points="9 12 11 14 15 10" />
+              </svg>
+            </div>
+            <div class="feature-info">
+              <h4>Best Price Guarantee</h4>
+              <p>Get the best rates every time.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            </div>
+            <div class="feature-info">
+              <h4>Flexible Bookings</h4>
+              <p>Modify or cancel anytime.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+                <circle cx="7" cy="17" r="2" />
+                <path d="M9 17h6" />
+                <circle cx="17" cy="17" r="2" />
+              </svg>
+            </div>
+            <div class="feature-info">
+              <h4>Wide Range of Cars</h4>
+              <p>From economy to luxury vehicles.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                <path
+                  d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
+              </svg>
+            </div>
+            <div class="feature-info">
+              <h4>24/7 Customer Support</h4>
+              <p>We're here to help you anytime.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- POPULAR CHOICES SECTION -->
+    <section id="cars" class="section popular-section">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">EXPLORE</span>
+          <h2 class="section-title">Popular Choices</h2>
+        </div>
+        <a href="#all-cars" class="view-all-btn">
+          <span>View all cars</span>
+          <div class="btn-arrow-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="cars-grid">
+
+        <!-- Tesla Model 3 Card -->
+        <div class="car-card">
+          <button class="btn-heart" aria-label="Favorite">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
+          <div class="car-image-container">
+            <img src="/cars/tesla.png" alt="Tesla Model 3" class="car-image">
+          </div>
+          <div class="car-details">
+            <h3 class="car-name">Tesla Model 3</h3>
+            <span class="car-category">Electric</span>
+
+            <div class="car-specs">
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg> 5 Seats</span>
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="12" x2="16" y2="14" />
+                </svg> Auto</span>
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                </svg> 4 Doors</span>
+            </div>
+
+            <div class="car-price-row">
+              <div class="price-box">
+                <span class="price-amount">$79</span>
+                <span class="price-unit">/ day</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BMW X5 Card -->
+        <div class="car-card">
+          <button class="btn-heart" aria-label="Favorite">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
+          <div class="car-image-container">
+            <img src="/cars/bmw.png" alt="BMW X5" class="car-image">
+          </div>
+          <div class="car-details">
+            <h3 class="car-name">BMW X5</h3>
+            <span class="car-category">SUV</span>
+
+            <div class="car-specs">
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg> 5 Seats</span>
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="12" x2="16" y2="14" />
+                </svg> Auto</span>
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                </svg> 4 Doors</span>
+            </div>
+
+            <div class="car-price-row">
+              <div class="price-box">
+                <span class="price-amount">$110</span>
+                <span class="price-unit">/ day</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ford Mustang Card -->
+        <div class="car-card">
+          <button class="btn-heart" aria-label="Favorite">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
+          <div class="car-image-container">
+            <img src="/cars/mustang.png" alt="Ford Mustang" class="car-image">
+          </div>
+          <div class="car-details">
+            <h3 class="car-name">Ford Mustang</h3>
+            <span class="car-category">Sports</span>
+
+            <div class="car-specs">
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg> 4 Seats</span>
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="12" x2="16" y2="14" />
+                </svg> Auto</span>
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                </svg> 2 Doors</span>
+            </div>
+
+            <div class="car-price-row">
+              <div class="price-box">
+                <span class="price-amount">$99</span>
+                <span class="price-unit">/ day</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mercedes C-Class Card -->
+        <div class="car-card">
+          <button class="btn-heart" aria-label="Favorite">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
+          <div class="car-image-container">
+            <img src="/cars/mercedes.png" alt="Mercedes C-Class" class="car-image">
+          </div>
+          <div class="car-details">
+            <h3 class="car-name">Mercedes C-Class</h3>
+            <span class="car-category">Luxury</span>
+
+            <div class="car-specs">
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg> 5 Seats</span>
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="12" x2="16" y2="14" />
+                </svg> Auto</span>
+              <span class="spec-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                </svg> 4 Doors</span>
+            </div>
+
+            <div class="car-price-row">
+              <div class="price-box">
+                <span class="price-amount">$95</span>
+                <span class="price-unit">/ day</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXCLUSIVE DEALS SECTION -->
+    <section id="deals" class="section deals-section">
+      <div class="deals-container">
+
+        <!-- Section Title -->
+        <div class="deals-header">
+          <h2 class="section-title">Exclusive Rental Deals</h2>
+          <div class="animated-underline"></div>
+          <p class="section-subtitle">Premium offers for luxury driving experiences.</p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar glassmorphism">
+          <div class="filter-group">
+            <label class="form-label">Category</label>
+            <div class="select-wrapper">
+              <select class="form-input">
+                <option value="sports">Sports Cars</option>
+                <option value="suvs">SUVs</option>
+                <option value="sedans">Luxury Sedans</option>
+                <option value="electric">Electric Cars</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="form-label">Rental Duration</label>
+            <div class="select-wrapper">
+              <select class="form-input">
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </div>
+          </div>
+          <div class="filter-group slider-group">
+            <label class="form-label">Price Range</label>
+            <input type="range" min="50" max="1000" value="500" class="price-slider">
+            <div class="price-slider-labels">
+              <span>$50</span>
+              <span>$1000+</span>
+            </div>
+          </div>
+          <button class="btn-search-cars">
+            <span>Search</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Featured Deals -->
+        <div class="deals-grid">
+          <!-- Card 1 -->
+          <div class="car-card deal-card hover-lift">
+            <div class="car-image-container deal-image-wrapper">
+              <div class="discount-badge">-20%</div>
+              <img src="/cars/mercedes.png" alt="Mercedes S-Class" class="car-image zoom-hover">
+            </div>
+            <div class="car-details">
+              <h3 class="car-name">Mercedes S-Class</h3>
+              <div class="car-price-row deal-price-row">
+                <div class="price-box">
+                  <span class="original-price">$250</span>
+                  <span class="price-amount">$200</span>
+                  <span class="price-unit">/ day</span>
+                </div>
+              </div>
+              <div class="car-specs deal-specs">
+                <span class="spec-item">Petrol</span>
+                <span class="spec-item">Auto</span>
+                <span class="spec-item">5 Seats</span>
+                <span class="spec-item">Unlim. Mi</span>
+              </div>
+              <div class="limited-offer-badge">Limited Time Offer</div>
+              <button class="btn-book w-100 mt-3 btn-glow-hover">Book Now</button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="car-card deal-card hover-lift">
+            <div class="car-image-container deal-image-wrapper">
+              <div class="discount-badge">-15%</div>
+              <img src="/cars/bmw.png" alt="BMW 7 Series" class="car-image zoom-hover">
+            </div>
+            <div class="car-details">
+              <h3 class="car-name">BMW 7 Series</h3>
+              <div class="car-price-row deal-price-row">
+                <div class="price-box">
+                  <span class="original-price">$220</span>
+                  <span class="price-amount">$187</span>
+                  <span class="price-unit">/ day</span>
+                </div>
+              </div>
+              <div class="car-specs deal-specs">
+                <span class="spec-item">Petrol</span>
+                <span class="spec-item">Auto</span>
+                <span class="spec-item">5 Seats</span>
+                <span class="spec-item">Unlim. Mi</span>
+              </div>
+              <div class="limited-offer-badge">Limited Time Offer</div>
+              <button class="btn-book w-100 mt-3 btn-glow-hover">Book Now</button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="car-card deal-card hover-lift">
+            <div class="car-image-container deal-image-wrapper">
+              <div class="discount-badge">-30%</div>
+              <img src="/cars/tesla.png" alt="Tesla Model S" class="car-image zoom-hover">
+            </div>
+            <div class="car-details">
+              <h3 class="car-name">Tesla Model S</h3>
+              <div class="car-price-row deal-price-row">
+                <div class="price-box">
+                  <span class="original-price">$180</span>
+                  <span class="price-amount">$126</span>
+                  <span class="price-unit">/ day</span>
+                </div>
+              </div>
+              <div class="car-specs deal-specs">
+                <span class="spec-item">Electric</span>
+                <span class="spec-item">Auto</span>
+                <span class="spec-item">5 Seats</span>
+                <span class="spec-item">Unlim. Mi</span>
+              </div>
+              <div class="limited-offer-badge">Limited Time Offer</div>
+              <button class="btn-book w-100 mt-3 btn-glow-hover">Book Now</button>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="car-card deal-card hover-lift">
+            <div class="car-image-container deal-image-wrapper">
+              <div class="discount-badge">-10%</div>
+              <img src="/cars/mustang.png" alt="Ford Mustang GT" class="car-image zoom-hover">
+            </div>
+            <div class="car-details">
+              <h3 class="car-name">Ford Mustang GT</h3>
+              <div class="car-price-row deal-price-row">
+                <div class="price-box">
+                  <span class="original-price">$150</span>
+                  <span class="price-amount">$135</span>
+                  <span class="price-unit">/ day</span>
+                </div>
+              </div>
+              <div class="car-specs deal-specs">
+                <span class="spec-item">Petrol</span>
+                <span class="spec-item">Auto</span>
+                <span class="spec-item">4 Seats</span>
+                <span class="spec-item">Unlim. Mi</span>
+              </div>
+              <div class="limited-offer-badge">Limited Time Offer</div>
+              <button class="btn-book w-100 mt-3 btn-glow-hover">Book Now</button>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="car-card deal-card hover-lift">
+            <div class="car-image-container deal-image-wrapper">
+              <div class="discount-badge">-25%</div>
+              <img src="/cars/mercedes.png" alt="Mercedes G-Class" class="car-image zoom-hover">
+            </div>
+            <div class="car-details">
+              <h3 class="car-name">Mercedes G-Class</h3>
+              <div class="car-price-row deal-price-row">
+                <div class="price-box">
+                  <span class="original-price">$300</span>
+                  <span class="price-amount">$225</span>
+                  <span class="price-unit">/ day</span>
+                </div>
+              </div>
+              <div class="car-specs deal-specs">
+                <span class="spec-item">Petrol</span>
+                <span class="spec-item">Auto</span>
+                <span class="spec-item">5 Seats</span>
+                <span class="spec-item">Unlim. Mi</span>
+              </div>
+              <div class="limited-offer-badge">Limited Time Offer</div>
+              <button class="btn-book w-100 mt-3 btn-glow-hover">Book Now</button>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="car-card deal-card hover-lift">
+            <div class="car-image-container deal-image-wrapper">
+              <div class="discount-badge">-15%</div>
+              <img src="/cars/bmw.png" alt="BMW X5 M" class="car-image zoom-hover">
+            </div>
+            <div class="car-details">
+              <h3 class="car-name">BMW X5 M</h3>
+              <div class="car-price-row deal-price-row">
+                <div class="price-box">
+                  <span class="original-price">$210</span>
+                  <span class="price-amount">$178</span>
+                  <span class="price-unit">/ day</span>
+                </div>
+              </div>
+              <div class="car-specs deal-specs">
+                <span class="spec-item">Petrol</span>
+                <span class="spec-item">Auto</span>
+                <span class="spec-item">5 Seats</span>
+                <span class="spec-item">Unlim. Mi</span>
+              </div>
+              <div class="limited-offer-badge">Limited Time Offer</div>
+              <button class="btn-book w-100 mt-3 btn-glow-hover">Book Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Special Offers -->
+        <div class="special-offers-grid">
+          <!-- Banner 1 -->
+          <div class="offer-banner glassmorphism hover-lift border-glow">
+            <div class="offer-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div class="offer-content">
+              <h4>Weekend Special</h4>
+              <p>Get 20% off on all sports cars this weekend.</p>
+              <span class="expiry-date">Ends: Oct 15</span>
+            </div>
+            <button class="btn-claim">Claim Offer</button>
+          </div>
+          <!-- Banner 2 -->
+          <div class="offer-banner glassmorphism hover-lift border-glow">
+            <div class="offer-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+            </div>
+            <div class="offer-content">
+              <h4>Business Package</h4>
+              <p>Complimentary upgrade for weekly business rentals.</p>
+              <span class="expiry-date">Ends: Nov 30</span>
+            </div>
+            <button class="btn-claim">Claim Offer</button>
+          </div>
+          <!-- Banner 3 -->
+          <div class="offer-banner glassmorphism hover-lift border-glow">
+            <div class="offer-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </div>
+            <div class="offer-content">
+              <h4>Holiday Discount</h4>
+              <p>Book early and save up to 30% on luxury SUVs.</p>
+              <span class="expiry-date">Ends: Dec 25</span>
+            </div>
+            <button class="btn-claim">Claim Offer</button>
+          </div>
+        </div>
+
+        <!-- Why Book Now -->
+        <div class="why-book-grid">
+          <div class="why-book-card glassmorphism hover-lift border-glow">
+            <div class="why-book-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <h4>Free Cancellation</h4>
+            <p>Up to 24 hours before pick-up.</p>
+          </div>
+          <div class="why-book-card glassmorphism hover-lift border-glow">
+            <div class="why-book-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M16 12l-4-4-4 4"></path>
+                <path d="M12 8v8"></path>
+              </svg>
+            </div>
+            <h4>Unlimited Kilometers</h4>
+            <p>Drive as much as you want.</p>
+          </div>
+          <div class="why-book-card glassmorphism hover-lift border-glow">
+            <div class="why-book-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </div>
+            <h4>24/7 Roadside Assistance</h4>
+            <p>We are always here for you.</p>
+          </div>
+          <div class="why-book-card glassmorphism hover-lift border-glow">
+            <div class="why-book-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h4>Premium Insurance</h4>
+            <p>Fully covered for peace of mind.</p>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="deals-cta-banner glassmorphism hover-lift border-glow">
+          <div class="cta-content">
+            <h2 class="cta-heading">Ready to Drive Luxury?</h2>
+            <p class="cta-desc">Reserve your dream car today.</p>
+          </div>
+          <button class="btn-book cta-large-animated btn-glow-hover">Book Now</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="section services-section">
+      <div class="services-container">
+        
+        <!-- Section Title -->
+        <div class="deals-header">
+          <h2 class="section-title">Premium Services</h2>
+          <div class="animated-underline"></div>
+          <p class="section-subtitle">Luxury rental experiences designed around you.</p>
+        </div>
+
+        <!-- Service Grid -->
+        <div class="services-grid">
+          <!-- Card 1 -->
+          <div class="service-card glassmorphism hover-lift border-glow">
+            <div class="service-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3 class="service-title">Luxury Car Rental</h3>
+            <p class="service-desc">Experience the thrill of driving the world's most prestigious vehicles.</p>
+            <button class="btn-learn-more">Learn More <span class="arrow">→</span></button>
+          </div>
+          <!-- Card 2 -->
+          <div class="service-card glassmorphism hover-lift border-glow">
+            <div class="service-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <h3 class="service-title">Airport Pickup</h3>
+            <p class="service-desc">VIP terminal meet and greet with direct transfer to your vehicle.</p>
+            <button class="btn-learn-more">Learn More <span class="arrow">→</span></button>
+          </div>
+          <!-- Card 3 -->
+          <div class="service-card glassmorphism hover-lift border-glow">
+            <div class="service-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <h3 class="service-title">Corporate Rentals</h3>
+            <p class="service-desc">Tailored mobility solutions for businesses and executives.</p>
+            <button class="btn-learn-more">Learn More <span class="arrow">→</span></button>
+          </div>
+          <!-- Card 4 -->
+          <div class="service-card glassmorphism hover-lift border-glow">
+            <div class="service-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3 class="service-title">Wedding Cars</h3>
+            <p class="service-desc">Make your special day unforgettable with our elegant fleet.</p>
+            <button class="btn-learn-more">Learn More <span class="arrow">→</span></button>
+          </div>
+          <!-- Card 5 -->
+          <div class="service-card glassmorphism hover-lift border-glow">
+            <div class="service-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h3 class="service-title">Self Drive</h3>
+            <p class="service-desc">Take the wheel and enjoy absolute freedom on your journey.</p>
+            <button class="btn-learn-more">Learn More <span class="arrow">→</span></button>
+          </div>
+          <!-- Card 6 -->
+          <div class="service-card glassmorphism hover-lift border-glow">
+            <div class="service-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            </div>
+            <h3 class="service-title">Chauffeur Service</h3>
+            <p class="service-desc">Relax while our professional chauffeurs navigate the city.</p>
+            <button class="btn-learn-more">Learn More <span class="arrow">→</span></button>
+          </div>
+          <!-- Card 7 -->
+          <div class="service-card glassmorphism hover-lift border-glow">
+            <div class="service-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <h3 class="service-title">Long-Term Rentals</h3>
+            <p class="service-desc">Flexible monthly leasing options with premium maintenance.</p>
+            <button class="btn-learn-more">Learn More <span class="arrow">→</span></button>
+          </div>
+          <!-- Card 8 -->
+          <div class="service-card glassmorphism hover-lift border-glow">
+            <div class="service-icon-wrapper">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <h3 class="service-title">VIP Membership</h3>
+            <p class="service-desc">Exclusive benefits, priority booking, and discounted rates.</p>
+            <button class="btn-learn-more">Learn More <span class="arrow">→</span></button>
+          </div>
+        </div>
+
+        <!-- Why Choose Roadify (Redesigned specifically for Services) -->
+        <div class="why-choose-services-grid">
+          <div class="why-choose-card glassmorphism border-glow">
+            <div class="icon-pulse">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <h4>Premium Fleet</h4>
+            <p>Guaranteed latest models.</p>
+          </div>
+          <div class="why-choose-card glassmorphism border-glow">
+            <div class="icon-pulse">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <h4>Flexible Plans</h4>
+            <p>Rent by day, week or month.</p>
+          </div>
+          <div class="why-choose-card glassmorphism border-glow">
+            <div class="icon-pulse">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <h4>24/7 Support</h4>
+            <p>Always at your service.</p>
+          </div>
+          <div class="why-choose-card glassmorphism border-glow">
+            <div class="icon-pulse">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h4>Fully Insured</h4>
+            <p>Complete peace of mind.</p>
+          </div>
+        </div>
+
+        <!-- Service Process -->
+        <div class="service-process-timeline glassmorphism">
+          <div class="process-line-animated"></div>
+          <div class="process-step">
+            <div class="process-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <h4>Choose Vehicle</h4>
+          </div>
+          <div class="process-step">
+            <div class="process-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <h4>Select Dates</h4>
+          </div>
+          <div class="process-step">
+            <div class="process-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+            <h4>Confirm Booking</h4>
+          </div>
+          <div class="process-step">
+            <div class="process-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <h4>Pick Up</h4>
+          </div>
+          <div class="process-step">
+            <div class="process-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+            </div>
+            <h4>Drive</h4>
+          </div>
+        </div>
+
+        <!-- Extra Services -->
+        <div class="extras-grid">
+          <div class="extra-card glassmorphism hover-lift border-glow">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+            <h4>GPS Navigation</h4>
+          </div>
+          <div class="extra-card glassmorphism hover-lift border-glow">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 10c0-3.31-2.69-6-6-6s-6 2.69-6 6"></path><path d="M12 10v4"></path><path d="M8 14h8"></path><path d="M12 14c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+            <h4>Child Seat</h4>
+          </div>
+          <div class="extra-card glassmorphism hover-lift border-glow">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <h4>Additional Driver</h4>
+          </div>
+          <div class="extra-card glassmorphism hover-lift border-glow">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <h4>Insurance Upgrade</h4>
+          </div>
+          <div class="extra-card glassmorphism hover-lift border-glow">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v6h18V2H3zm2 4H4V4h1v2zm3 0H7V4h1v2zm3 0h-1V4h1v2zm3 0h-1V4h1v2zm3 0h-1V4h1v2z"></path><path d="M5 8v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8"></path><path d="M9 12h6"></path><path d="M9 16h6"></path></svg>
+            <h4>Fuel Package</h4>
+          </div>
+          <div class="extra-card glassmorphism hover-lift border-glow">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            <h4>Roadside Assistance</h4>
+          </div>
+        </div>
+
+        <!-- Customer Testimonials -->
+        <div class="testimonials-slider-container">
+          <div class="testimonials-slider">
+            <div class="review-card glassmorphism border-glow hover-lift">
+              <div class="review-header">
+                <div class="reviewer-img-wrapper">
+                  <span class="avatar">SJ</span>
+                </div>
+                <div class="review-info">
+                  <h4 class="reviewer-name">Sarah Jenkins</h4>
+                  <div class="star-rating">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">"Absolutely flawless experience from start to finish. The airport pickup was prompt and the car was immaculate."</p>
+            </div>
+            
+            <div class="review-card glassmorphism border-glow hover-lift">
+              <div class="review-header">
+                <div class="reviewer-img-wrapper">
+                  <span class="avatar">MR</span>
+                </div>
+                <div class="review-info">
+                  <h4 class="reviewer-name">Michael Ross</h4>
+                  <div class="star-rating">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">"Used their corporate rental service for a business trip. High quality cars, great flexible terms. Highly recommend."</p>
+            </div>
+
+            <div class="review-card glassmorphism border-glow hover-lift">
+              <div class="review-header">
+                <div class="reviewer-img-wrapper">
+                  <span class="avatar">EP</span>
+                </div>
+                <div class="review-info">
+                  <h4 class="reviewer-name">Elena Perez</h4>
+                  <div class="star-rating">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                </div>
+              </div>
+              <p class="review-text">"The chauffeur service was exceptional. Professional driver and a very smooth ride. Worth every penny."</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="location-cta glassmorphism hover-lift border-glow">
+          <div class="cta-content">
+            <h2 class="cta-heading">Experience Luxury Driving Today</h2>
+            <p class="cta-desc">Book with confidence.</p>
+          </div>
+          <button class="btn-book cta-large-animated btn-glow-hover">Book Now</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LOCATIONS SECTION -->
+    <section id="locations" class="section locations-section">
+      <div class="locations-container">
+        
+        <div class="deals-header">
+          <h2 class="section-title">Find a Rental Near You</h2>
+          <div class="animated-underline"></div>
+          <p class="section-subtitle">Choose the nearest premium Roadify location.</p>
+        </div>
+
+        <div class="location-search-container glassmorphism border-glow">
+          <div class="search-inputs">
+            <div class="input-group">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" placeholder="Search City..." class="location-input">
+            </div>
+            <div class="input-group">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <select class="location-select">
+                <option value="">Select Location</option>
+                <option value="ny">New York</option>
+                <option value="la">Los Angeles</option>
+                <option value="mi">Miami</option>
+              </select>
+            </div>
+          </div>
+          <div class="search-actions">
+            <button class="btn-current-location">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H22"></path><circle cx="12" cy="12" r="2"></circle></svg>
+            </button>
+            <button class="btn-search-locations">Search</button>
+          </div>
+        </div>
+
+        <div class="locations-grid">
+          <!-- Card 1 -->
+          <div class="location-card glassmorphism hover-lift border-glow">
+            <div class="location-image">
+              <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e2815cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="New York Branch">
+              <div class="location-badge">Downtown</div>
+            </div>
+            <div class="location-content">
+              <h3 class="city-name">New York</h3>
+              <div class="location-details">
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 125 5th Ave, NY 10003</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 08:00 AM - 10:00 PM</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +1 (555) 123-4567</p>
+              </div>
+              <div class="location-footer">
+                <span class="cars-available">42 Cars Available</span>
+                <button class="btn-view-details">View Details</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div class="location-card glassmorphism hover-lift border-glow">
+            <div class="location-image">
+              <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Los Angeles Branch">
+              <div class="location-badge">Airport</div>
+            </div>
+            <div class="location-content">
+              <h3 class="city-name">Los Angeles</h3>
+              <div class="location-details">
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> LAX Terminal 4, CA 90045</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 24/7 Open</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +1 (555) 987-6543</p>
+              </div>
+              <div class="location-footer">
+                <span class="cars-available">85 Cars Available</span>
+                <button class="btn-view-details">View Details</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div class="location-card glassmorphism hover-lift border-glow">
+            <div class="location-image">
+              <img src="https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Miami Branch">
+              <div class="location-badge">South Beach</div>
+            </div>
+            <div class="location-content">
+              <h3 class="city-name">Miami</h3>
+              <div class="location-details">
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 900 Ocean Dr, FL 33139</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 09:00 AM - 09:00 PM</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +1 (555) 456-7890</p>
+              </div>
+              <div class="location-footer">
+                <span class="cars-available">28 Cars Available</span>
+                <button class="btn-view-details">View Details</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div class="location-card glassmorphism hover-lift border-glow">
+            <div class="location-image">
+              <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="London Branch">
+              <div class="location-badge">City Center</div>
+            </div>
+            <div class="location-content">
+              <h3 class="city-name">London</h3>
+              <div class="location-details">
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 15 Piccadilly, W1J 9HF</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 08:00 AM - 08:00 PM</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +44 20 7946 0958</p>
+              </div>
+              <div class="location-footer">
+                <span class="cars-available">56 Cars Available</span>
+                <button class="btn-view-details">View Details</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div class="location-card glassmorphism hover-lift border-glow">
+            <div class="location-image">
+              <img src="https://images.unsplash.com/photo-1549144511-f099e773c147?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paris Branch">
+              <div class="location-badge">Champs-Élysées</div>
+            </div>
+            <div class="location-content">
+              <h3 class="city-name">Paris</h3>
+              <div class="location-details">
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> 75 Av. des Champs, 75008</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 09:00 AM - 07:00 PM</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +33 1 23 45 67 89</p>
+              </div>
+              <div class="location-footer">
+                <span class="cars-available">34 Cars Available</span>
+                <button class="btn-view-details">View Details</button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 6 -->
+          <div class="location-card glassmorphism hover-lift border-glow">
+            <div class="location-image">
+              <img src="https://images.unsplash.com/photo-1528263595166-50e50f55502f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dubai Branch">
+              <div class="location-badge">Marina</div>
+            </div>
+            <div class="location-content">
+              <h3 class="city-name">Dubai</h3>
+              <div class="location-details">
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Dubai Marina Mall, UAE</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> 10:00 AM - 12:00 AM</p>
+                <p><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> +971 4 123 4567</p>
+              </div>
+              <div class="location-footer">
+                <span class="cars-available">65 Cars Available</span>
+                <button class="btn-view-details">View Details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE ROADIFY SECTION -->
+    <section id="about" class="section why-section">
+      <div class="why-container">
+
+        <div class="why-left">
+          <span class="section-tag">WHY CHOOSE ROADIFY?</span>
+          <h2 class="section-title">We make it simple<br>to hit the road.</h2>
+
+          <ul class="check-list">
+            <li>
+              <div class="check-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <span>No hidden fees</span>
+            </li>
+            <li>
+              <div class="check-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <span>Easy pick-up & drop-off</span>
+            </li>
+            <li>
+              <div class="check-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <span>Clean & well-maintained cars</span>
+            </li>
+            <li>
+              <div class="check-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+              </div>
+              <span>Loyalty rewards & exclusive deals</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="why-right">
+          <div class="testimonial-card">
+            <div class="testimonial-content">
+              <div class="quote-icon">“</div>
+              <p class="quote-text">
+                Roadify made our trip unforgettable. Great car, great service, great price!
+              </p>
+
+              <div class="user-profile">
+                <div class="avatar">
+                  <span>JT</span>
+                </div>
+                <div class="user-info">
+                  <h5 class="user-name">James T.</h5>
+                  <span class="user-role">Road Trip Enthusiast</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-image-wrapper">
+              <div class="roadtrip-badge">Golden Hour Drive</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+      <div class="contact-container">
+        
+        <div class="deals-header contact-header">
+          <span class="section-tag">GET IN TOUCH</span>
+          <h1 class="section-title contact-main-title">Contact <span class="text-red">Us</span></h1>
+          <div class="animated-underline"></div>
+          <p class="section-subtitle">We're here to help. Get in touch with our team 24/7.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info Column -->
+          <div class="contact-info-list">
+            <div class="contact-info-card">
+              <div class="contact-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Phone Support</h4>
+                <p>+1 (800) 555-ROAD (7623)</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Email Us</h4>
+                <p>support@roadify.com</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Headquarters</h4>
+                <p>500 5th Ave, New York, NY 10110</p>
+              </div>
+            </div>
+
+            <div class="contact-info-card">
+              <div class="contact-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div>
+                <h4>Operating Hours</h4>
+                <p>24/7 Customer Service Always Available</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="contact-form-card">
+            <h3>Send Us a Message</h3>
+            <p>Fill out the form below and our team will get back to you within 15 minutes.</p>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for contacting Roadify! We will reach out shortly.');">
+              <div class="form-row-2col">
+                <div class="form-group">
+                  <label class="form-label">Your Name</label>
+                  <input type="text" class="form-input" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-input" placeholder="john@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Subject</label>
+                <input type="text" class="form-input" placeholder="Car Reservation / Inquiry" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-input" placeholder="How can we assist your trip?" required></textarea>
+              </div>
+
+              <button type="submit" class="btn-send-message">
+                <span>Send Message</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- JOIN ROADIFY REWARDS BANNER -->
+    <section class="section banner-section">
+      <div class="rewards-banner">
+        <div class="banner-left">
+          <div class="gift-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 12 20 22 4 22 4 12" />
+              <rect x="2" y="7" width="20" height="5" />
+              <line x1="12" y1="22" x2="12" y2="7" />
+              <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+              <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+            </svg>
+          </div>
+          <div class="banner-text">
+            <h3>Join Roadify Rewards</h3>
+            <p>Earn points, unlock perks, and enjoy exclusive member benefits.</p>
+          </div>
+        </div>
+        <button class="btn-join-now">
+          <span>Join Now</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- STATS FOOTER BAR -->
+    <section class="section stats-section">
+      <div class="stats-grid">
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path
+                d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2" />
+              <circle cx="7" cy="17" r="2" />
+              <path d="M9 17h6" />
+              <circle cx="17" cy="17" r="2" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number">10,000+</span>
+            <span class="stat-label">Happy Customers</span>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 21s-8-7.5-8-12a8 8 0 1 1 16 0c0 4.5-8 12-8 12z" />
+              <circle cx="12" cy="9" r="3" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number">150+</span>
+            <span class="stat-label">Locations Worldwide</span>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="5" width="20" height="14" rx="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number">5,000+</span>
+            <span class="stat-label">Cars in Fleet</span>
+          </div>
+        </div>
+
+        <div class="stat-item">
+          <div class="stat-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          </div>
+          <div class="stat-text">
+            <span class="stat-number">4.9/5</span>
+            <span class="stat-label">Customer Rating</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p>© 2026 Roadify Inc. All rights reserved. RENT. DRIVE. DISCOVER.</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
